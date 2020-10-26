@@ -1,4 +1,7 @@
 @echo off
+CALL settings
+CALL LOG
+
 
 call :log_enter pGO
 
