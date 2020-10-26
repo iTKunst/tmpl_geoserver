@@ -37,5 +37,5 @@ docker network ^
        --label=$LABEL ^
        %NET%
 
-CALL LOG_EXIT pGO
+call :log_exit pGO
 
