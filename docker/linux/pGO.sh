@@ -4,7 +4,7 @@ source settings.sh
 source LOG.sh
 
 
-log_enter pGO
+log_load pGO
 
 source pENV.sh
 
@@ -36,9 +36,16 @@ log_var USER $USER
 log_var VOL $VOL
 log_var VOL_DIR $VOL_DIR
 
-docker network \
-       create \
+docker run \
+       -d \
+       -p $HOST:$PORT_EXT:$PORT_INT \
+       -e POSTGRES_DB=$DB_NAME \
+       -e POSTGRES_USER=$USER \
+       -e POSTGRES_PASSWORD=$PASSWORD \
+       --mount type=volume,src=$VOL,dst=$VOL_DIR \
        --label=$LABEL \
-       $NET
+       --name=$CONT \
+       --network=$NET \
+       $IMG
 
-log_exit pGO
+log_unload pGO
