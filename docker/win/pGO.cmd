@@ -1,6 +1,5 @@
 @echo off
 CALL settings
-CALL LOG
 
 
 call LOG_ENTER pGO
