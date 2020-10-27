@@ -3,7 +3,7 @@ CALL settings
 CALL LOG
 
 
-call :log_enter pGO
+call LOG_ENTER pGO
 
 CALL pENV
 
@@ -21,24 +21,24 @@ SET USER=%PROJ_USER%
 SET VOL=%PROJ_VOL%
 SET VOL_DIR=%PROJ_VOL_DIR%
 
-call :log_var CONT %CONT%
-call :log_var CONT_DIR %CONT_DIR%
-call :log_var HOST %HOST%
-call :log_var HOST_DIR %HOST_DIR%
-call :log_var IMG %IMG%
-call :log_var LABEL %LABEL%
-call :log_var NET %NET%
-call :log_var PASSWORD %PASSWORD%
-call :log_var PORT_EXT %PORT_EXT%
-call :log_var PORT_INT %PORT_INT%
-call :log_var USER %USER%
-call :log_var VOL %VOL%
-call :log_var VOL_DIR %VOL_DIR%
+call LOG_VAR CONT %CONT%
+call LOG_VAR CONT_DIR %CONT_DIR%
+call LOG_VAR HOST %HOST%
+call LOG_VAR HOST_DIR %HOST_DIR%
+call LOG_VAR IMG %IMG%
+call LOG_VAR LABEL %LABEL%
+call LOG_VAR NET %NET%
+call LOG_VAR PASSWORD %PASSWORD%
+call LOG_VAR PORT_EXT %PORT_EXT%
+call LOG_VAR PORT_INT %PORT_INT%
+call LOG_VAR USER %USER%
+call LOG_VAR VOL %VOL%
+call LOG_VAR VOL_DIR %VOL_DIR%
 
 docker network ^
        create ^
        --label=$LABEL ^
        %NET%
 
-call :log_exit pGO
+call LOG_EXIT pGO
 
